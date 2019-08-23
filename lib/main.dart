@@ -45,22 +45,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-//  TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
-//     final openButon = Material(
-//           elevation: 5.0,
-//           borderRadius: BorderRadius.circular(20.0),
-//           color: Color(0xff03a9f4),
-//           child: MaterialButton(
-//             minWidth: MediaQuery.of(context).size.width,
-//             padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-//             onPressed: () {},
-//             child: Text("Open",
-//                 textAlign: TextAlign.center,
-//                 style: style.copyWith(
-//                     color: Colors.white, fontWeight: FontWeight.bold)),
-//           ),
-//         );
-
     return MaterialApp(
       title: 'Posts App',
       theme: ThemeData(
@@ -83,48 +67,11 @@ class MyApp extends StatelessWidget {
             future: post,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                
-                // return Text(
-                //   snapshot.data.title,
-                //   style: TextStyle(
-                //     fontFamily: 'Nunito',
-                //     fontSize: 20.0,
-                //     color: Colors.red,
-                      
-                //   )
-                // );
-
-                // return 
-                // RaisedButton(
-                //   // margin: const EdgeInsets.only(top: 10.0),
-                //   padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
-                //   // margin: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
-                //   textColor: Colors.white,
-                //   color: Colors.red,
-                //   child: Text(
-                //     snapshot.data.title,
-                //     style: TextStyle(
-                //       fontFamily: 'Nunito',
-                //       fontSize: 20.0,
-                //       color: Colors.black,
-                //   )
-                //   ),
-                //   onPressed: () {
-                //     // TODO
-                //   },
-                // );
                 return Container(
                   margin: EdgeInsets.all(20),
-                  // padding: EdgeInsets.all(20),
-                  // decoration: BoxDecoration(
-                  //     color: Colors.yellow,
-                  //     border: Border.all(color: Colors.black),
-                  // ),
                   child: 
                     RaisedButton(
-                      // margin: const EdgeInsets.only(top: 10.0),
                       padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
-                      // margin: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
                       textColor: Colors.white,
                       color: Colors.red,
                       child: Text(
@@ -136,8 +83,11 @@ class MyApp extends StatelessWidget {
                       )
                       ),
                       onPressed: () {
-                        // TODO
-                      },
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SecondRoute()),
+                        );
+                      }
                     )
                 );
               } else if (snapshot.hasError) {
@@ -155,6 +105,26 @@ class MyApp extends StatelessWidget {
           },
           child: Icon(Icons.thumb_up),
           backgroundColor: Colors.red,
+        ),
+      ),
+    );
+  }
+}
+
+class SecondRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Second Route"),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Go back!'),
         ),
       ),
     );
