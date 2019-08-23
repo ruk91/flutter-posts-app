@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import './screens/profile.dart';
+
 Future<Post> fetchPost() async {
   final response =
       await http.get('https://jsonplaceholder.typicode.com/posts/1');
@@ -85,7 +87,7 @@ class MyApp extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => SecondRoute()),
+                          MaterialPageRoute(builder: (context) => ProfileScreen()),
                         );
                       }
                     )
@@ -111,22 +113,22 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class SecondRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Second Route"),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!'),
-        ),
-      ),
-    );
-  }
-}
+// class SecondRoute extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text("Second Route"),
+//         centerTitle: true,
+//       ),
+//       body: Center(
+//         child: RaisedButton(
+//           onPressed: () {
+//             Navigator.pop(context);
+//           },
+//           child: Text('Go back!'),
+//         ),
+//       ),
+//     );
+//   }
+// }
