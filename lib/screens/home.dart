@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+// import './screens/profile.dart';
 import './profile.dart';
 
 Future<Post> fetchPost() async {
@@ -37,7 +38,8 @@ class Post {
   }
 }
 
-void main() => runApp(Home(post: fetchPost()));
+// void main() => runApp(Home(post: fetchPost()));
+
 class Home extends StatelessWidget {
   final Future<Post> post;
 
@@ -111,3 +113,23 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+// class SecondRoute extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text("Second Route"),
+//         centerTitle: true,
+//       ),
+//       body: Center(
+//         child: RaisedButton(
+//           onPressed: () {
+//             Navigator.pop(context);
+//           },
+//           child: Text('Go back!'),
+//         ),
+//       ),
+//     );
+//   }
+// }
