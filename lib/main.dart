@@ -69,7 +69,13 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Posts'),
+          title: Text('Posts',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 24.0,
+            ),
+          ),
+          
           centerTitle: true,
         ),
         body: Center(
@@ -77,14 +83,63 @@ class MyApp extends StatelessWidget {
             future: post,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Text(
-                  snapshot.data.title,
-                  style: TextStyle(
-                    fontFamily: 'Nunito-Regular',
-                    fontSize: 20.0,
-                    color: Colors.red,
+                
+                // return Text(
+                //   snapshot.data.title,
+                //   style: TextStyle(
+                //     fontFamily: 'Nunito',
+                //     fontSize: 20.0,
+                //     color: Colors.red,
                       
-                  ));
+                //   )
+                // );
+
+                // return 
+                // RaisedButton(
+                //   // margin: const EdgeInsets.only(top: 10.0),
+                //   padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
+                //   // margin: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
+                //   textColor: Colors.white,
+                //   color: Colors.red,
+                //   child: Text(
+                //     snapshot.data.title,
+                //     style: TextStyle(
+                //       fontFamily: 'Nunito',
+                //       fontSize: 20.0,
+                //       color: Colors.black,
+                //   )
+                //   ),
+                //   onPressed: () {
+                //     // TODO
+                //   },
+                // );
+                return Container(
+                  margin: EdgeInsets.all(20),
+                  // padding: EdgeInsets.all(20),
+                  // decoration: BoxDecoration(
+                  //     color: Colors.yellow,
+                  //     border: Border.all(color: Colors.black),
+                  // ),
+                  child: 
+                    RaisedButton(
+                      // margin: const EdgeInsets.only(top: 10.0),
+                      padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
+                      // margin: EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
+                      textColor: Colors.white,
+                      color: Colors.red,
+                      child: Text(
+                        snapshot.data.title,
+                        style: TextStyle(
+                          fontFamily: 'Nunito',
+                          fontSize: 20.0,
+                          color: Colors.white
+                      )
+                      ),
+                      onPressed: () {
+                        // TODO
+                      },
+                    )
+                );
               } else if (snapshot.hasError) {
                 return Text("${snapshot.error}");
               }
