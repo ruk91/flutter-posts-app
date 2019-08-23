@@ -8,7 +8,12 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Second Route"),
+        title: Text('Profile',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 24.0,
+            ),
+          ),
         centerTitle: true,
       ),
       body: Center(
